@@ -2,6 +2,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Callable, Dict, Optional, Set, Union
 
+
 class Condition:
     def check(self, state: "GameState") -> bool:
         raise NotImplementedError
@@ -69,9 +70,8 @@ class GameState:
             print(m)
         self.messages.clear()
 
-
 #_______________________Rooms__________________________
-
+"""
 END = Room(
     id="END",
     desc="END",
@@ -169,9 +169,6 @@ ROOM1_8 = Room(
     },
 )   
 
-ROOMS: Dict[str, Room] = {
-    r.id: r for r in [MIDDLE, END, ROOM1_1, ROOM1_2, ROOM1_3, ROOM1_4, ROOM1_5, ROOM1_6, ROOM1_7, ROOM1_8]
-}
 
 #_______________________Loop__________________________
 
@@ -270,4 +267,4 @@ def game_loop(start_room: str = "MIDDLE") -> None:
 
 if __name__ == "__main__":
     game_loop()
-    
+"""    
