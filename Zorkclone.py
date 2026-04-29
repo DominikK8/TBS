@@ -1,4 +1,5 @@
-"""from __future__ import annotations
+"""
+from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Callable, Dict, Optional, Set, Union
 
@@ -48,7 +49,10 @@ class Room:
     global_objects: Set[str] = field(default_factory=set)
 
     def describe(self) -> str:
-        return self.ldesc or self.desc
+        return self.desc
+    
+    def look(self) -> str:
+        return self.ldesc
 
     def try_move(self, state: "GameState", direction: str) -> Optional[str]:
         ex = self.exits.get(direction.upper())
