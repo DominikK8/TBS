@@ -36,7 +36,7 @@ class Room:
         return self.desc
     
     def look(self) -> str:
-        return self.ldesc
+       return self.ldesc
 
     def try_move(self, state: "GameState", direction: str) -> Optional[str]:
         ex = self.exits.get(direction.upper())
@@ -48,24 +48,23 @@ class Room:
             return None
         
         return ex.target
-
-        # blocked message exit (e.g. EAST "The door is boarded...")
-"""       if ex.blocked_msg:
-            state.output(ex.blocked_msg)
-            return None"""
-
-                
-
+    
+    def end_action(state, room, cmd):
+        state.flags.add("WON")
+        #state.output("🎉 DU HAST GEWONNEN! 🎉")
+        state.game_over = True
+      
 @dataclass
 class GameState:
     flags: Set[str] = field(default_factory=set)
-    objects: Dict[str, Dict[str, object]] = field(default_factory=dict)
+    # objects: Dict[str, Dict[str, object]] = field(default_factory=dict)
     messages: list[str] = field(default_factory=list)
+    game_over: bool = False 
 
     def output(self, msg: str) -> None:
-        self.messages.append(msg)
+         self.messages.append(msg)
 
-    def flush_output(self) -> None:
-        for m in self.messages:
-            print(m)
-        self.messages.clear()
+    # def flush_output(self) -> None:
+    #     for m in self.messages:
+    #         print(m)
+    #     self.messages.clear()

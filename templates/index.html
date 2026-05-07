@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Das Labyrinth</title>
+
+    <!-- Google Font: IM Fell English sieht aus wie alter Buchdruck -->
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* Alles auf der Seite bekommt die Briefschrift */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Background */
+        body {
+            background-color: #2c2416;
+            /* simuliert leicht kaputtes Papier */
+            background-image: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 28px,
+                rgba(0,0,0,0.03) 28px,
+                rgba(0,0,0,0.03) 29px
+            );
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            font-family: 'IM Fell English', Georgia, serif;
+        }
+
+        /* terminal - Papier */
+        .letter {
+            background-color: #f5e9c9;
+            /* Leichter Schatten */
+            box-shadow:
+                0 4px 6px rgba(0,0,0,0.3),
+                0 10px 30px rgba(0,0,0,0.4),
+                inset 0 0 60px rgba(180,140,60,0.1);
+            width: 100%;
+            max-width: 680px;
+            min-height: 80vh;
+            padding: 3rem 3.5rem;
+            display: flex;
+            flex-direction: column;
+            /* Leichte Papier-Textur über CSS */
+            position: relative;
+        }
+
+        /* Linke Falzkante des Briefs */
+        .letter::before {
+            content: '';
+            position: absolute;
+            left: 3rem;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: rgba(180, 100, 80, 0.25);
+        }
+
+        /* Der Titel oben auf dem Brief, zentriert wie eine Überschrift */
+        .letter-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(100, 60, 20, 0.3);
+        }
+
+        .letter-header h1 {
+            font-family: 'IM Fell English SC', serif;
+            font-size: 1.8rem;
+            color: #3a2510;
+            letter-spacing: 0.1em;
+        }
+
+        .letter-header .subtitle {
+            font-style: italic;
+            color: #7a5530;
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+
+        /* der output-Bereich:
+           flex: 1 bedeutet: nimm den ganzen verfügbaren Platz */
+        #output {
+            flex: 1;
+            overflow-y: auto;       /* Scrollbar wenn zu viel Text */
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;    
+            min-height: 300px;
+            max-height: 55vh;
+        }
+
+        /* Jede einzelne Zeile im Ausgabebereich */
+        #output p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #2a1a08;
+            margin-bottom: 0.2rem;
+        }
+
+        /* Raumnamen hervorgehoben */
+        #output p.room-name {
+            font-family: 'IM Fell English SC', serif;
+            font-size: 1.05rem;
+            color: #5a2e0a;
+            margin-top: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Systemmeldungen */
+        #output p.system {
+            font-style: italic;
+            color: #8a6040;
+            font-size: 0.9rem;
+        }
+
+        /* Eingabe des Spielers */
+        #output p.player-input {
+            color: #1a3a1a;
+            font-style: italic;
+            border-left: 2px solid rgba(100, 60, 20, 0.3);
+            padding-left: 0.5rem;
+            margin-left: -0.5rem;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid rgba(100, 60, 20, 0.25);
+            margin-bottom: 1.2rem;
+        }
+
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .input-label {
+            font-style: italic;
+            color: #7a5530;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        #cmd {
+            flex: 1;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(100, 60, 20, 0.5);
+            color: #1a1a0a;
+            font-family: 'IM Fell English', Georgia, serif;
+            font-size: 1rem;
+            padding: 0.3rem 0.2rem;
+            outline: none;          
+        }
+
+        /* Linie wird dunkler */
+        #cmd:focus {
+            border-bottom-color: rgba(100, 60, 20, 0.9);
+        }
+
+        /* Senden-Button */
+        #send-btn {
+            background: #3a2510;
+            color: #f5e9c9;
+            border: none;
+            font-family: 'IM Fell English SC', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            padding: 0.4rem 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        #send-btn:hover {
+            background: #5a3a18;
+        }
+
+        /* ── Scrollbar styling (nur in Chrome/Edge/Safari) ─────────────── */
+        #output::-webkit-scrollbar {
+            width: 4px;
+        }
+        #output::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        #output::-webkit-scrollbar-thumb {
+            background: rgba(100, 60, 20, 0.3);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="letter">
+
+        <!-- Kopfzeile des Briefs -->
+        <div class="letter-header">
+            <h1>Das Labyrinth</h1>
+            <p class="subtitle">Suche den Ausgang</p>
+        </div>
+
+        <!-- outputs -->
+        <div id="output"></div>
+
+        <hr class="divider">
+
+        <!-- Eingabezeile unten -->
+        <div class="input-row">
+            <span class="input-label">Ich schreibe:</span>
+            <input type="text" id="cmd" placeholder="z.B. umschauen, norden, hilfe …" autofocus />
+            <button id="send-btn">Senden</button>
+        </div>
+
+    </div>
+
+    <script>
+        // ── Hilfsfunktion: Text im Ausgabebereich anzeigen ───────────────
+        function print(text, cls = "") {
+            const p = document.createElement("p");
+            if (cls) p.className = cls;
+            p.textContent = text;
+            document.getElementById("output").appendChild(p);
+
+            // Automatisch nach unten scrollen
+            const out = document.getElementById("output");
+            out.scrollTop = out.scrollHeight;
+        }
+
+        // senden funktion
+        async function sendCmd() {
+            const input = document.getElementById("cmd");
+            const command = input.value.trim();
+            if (!command) return;
+
+            // Eingabe des Spielers anzeigen
+            print("› " + command, "player-input");
+            input.value = "";
+
+            // TODO: Hier kommt später der fetch()-Aufruf zu Flask (/cmd)
+            fetch("/eingabe", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ cmd: command })
+            })
+            .then(response => response.json())    
+            .then(data => {
+                data.output.forEach(line => print(line));
+            })
+        }
+        // ── Enter-Taste abfangen ─────────────────────────────────────────
+        document.getElementById("cmd").addEventListener("keydown", e => {
+            if (e.key === "Enter") sendCmd();
+        });
+
+        // ── Button-Klick ─────────────────────────────────────────────────
+        document.getElementById("send-btn").addEventListener("click", sendCmd);
+
+        // ── Startnachricht beim Laden ─────────────────────────────────────
+        print("Du entfaltest einen vergilbten Brief…", "system");
+        print("Tippe 'hilfe' für eine Liste der Befehle.", "system");
+
+    </script>
+
+</body>
+</html>
