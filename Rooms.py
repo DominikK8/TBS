@@ -503,15 +503,25 @@ ROOM4_1 = Room(
 ROOM4_2 = Room(
     id="ROOM4_2",
     desc="ROOM4_2",
-    ldesc="Du bist in einem Gang. Es gibt einen Weg nach Norden und Süden.",
+    ldesc="Du bist in einem Gang. Es gibt einen Weg nach Westen und Osten.",
     exits={
         "WEST": Exit("WEST", target="ROOM4_1"),
         "EAST": Exit("EAST", target="ROOM4_3"),
     },
 )
 
+ROOM4_3 = Room(
+    id="ROOM4_3",
+    desc="ROOM4_3",
+    ldesc="Du bist in einem Gang. Es gibt einen Weg nach Westen und Osten.",
+    exits={
+        "WEST": Exit("WEST", target="ROOM4_2"),
+        "EAST": Exit("EAST", target="ROOM4_4"),
+    },
+)
+
 
 
 ROOMS: Dict[str, Room] = {
-    r.id: r for r in [MIDDLE, END, ROOM1_1, ROOM1_2, ROOM1_3, ROOM1_4, ROOM1_5, ROOM1_6, ROOM1_7, ROOM1_8, ROOM2_1, ROOM2_2, ROOM2_3, ROOM2_4, ROOM2_5, ROOM2_6, ROOM2_7, ROOM2_8, ROOM2_9, ROOM2_10, ROOM2_11, ROOM2_12, ROOM2_13, ROOM2_14, ROOM2_15, ROOM2_16, ROOM3_1, ROOM3_2, ROOM3_3, ROOM3_4, ROOM3_5, ROOM3_6, ROOM3_7, ROOM3_8, ROOM3_9, ROOM3_10, ROOM3_11, ROOM3_12, ROOM3_13, ROOM3_14, ROOM3_15, ROOM3_16, ROOM3_17, ROOM3_18, ROOM3_19, ROOM3_20, ROOM3_21, ROOM3_22, ROOM4_1 ]
+    r.id: r for r in [MIDDLE, END, ROOM1_1, ROOM1_2, ROOM1_3, ROOM1_4, ROOM1_5, ROOM1_6, ROOM1_7, ROOM1_8, ROOM2_1, ROOM2_2, ROOM2_3, ROOM2_4, ROOM2_5, ROOM2_6, ROOM2_7, ROOM2_8, ROOM2_9, ROOM2_10, ROOM2_11, ROOM2_12, ROOM2_13, ROOM2_14, ROOM2_15, ROOM2_16, ROOM3_1, ROOM3_2, ROOM3_3, ROOM3_4, ROOM3_5, ROOM3_6, ROOM3_7, ROOM3_8, ROOM3_9, ROOM3_10, ROOM3_11, ROOM3_12, ROOM3_13, ROOM3_14, ROOM3_15, ROOM3_16, ROOM3_17, ROOM3_18, ROOM3_19, ROOM3_20, ROOM3_21, ROOM3_22, ROOM4_1, ROOM4_2 ]
 }
