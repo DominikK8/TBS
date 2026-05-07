@@ -3,16 +3,16 @@ from typing import Dict
 
 END = Room(
     id="END",
-    desc="END",
-    ldesc="Du hast das Ende des Labyrinths erreicht. Glückwunsch!",
+    desc="Ein Ausgang!",
     flags={"WON-FLAG"},
     exits={},
+    action=Room.end_action,
 )
 
 MIDDLE = Room(
     id="MIDDLE",
-    desc="MIDDLE",
-    ldesc=("Du bist in mitten eines Labyrinths, nach Süden und Osten sind Wege."),
+    desc="Mitte",
+    ldesc=("Du kannst nichts sehen. Es riecht modrig, du kannst kalte feuchte Wände nördlich und westlich von dir ertasten. \n Langsam gewöhnen sich deine Augen an die Dunkelheit und du kannst schemenhaft erkennen, \n dass Wege nach Osten und Süden führen."),
     exits={
         "EAST":  Exit("EAST", target="ROOM1_4"),
         "SOUTH": Exit("SOUTH", target="ROOM1_6"),
@@ -22,7 +22,7 @@ MIDDLE = Room(
 ROOM1_1 = Room(
     id="ROOM1_1",
     desc="ROOM1_1",
-    ldesc="Du in einer Kurve. Es gibt einen Weg nach Westen.",
+    ldesc="Du in einer Kurve. Es gibt einen Weg nach Süden und nach Westen.",
     exits={
         "SOUTH": Exit("SOUTH", target="ROOM1_8"),
         "WEST": Exit("WEST", target="END"),
@@ -54,7 +54,7 @@ ROOM1_4 = Room(
     ldesc="Du bist in einer Spaltung des Weges. Es gibt Wege nach Norden, Osten und Süden.",
     exits={
         "NORTH": Exit("NORTH", target="ROOM1_3"),
-        "EAST": Exit("EAST", target="MIDDLE"),
+        "WEST": Exit("WEST", target="MIDDLE"),
         "SOUTH": Exit("SOUTH", target="ROOM1_5"),
     },
 )
