@@ -1,3 +1,5 @@
+# Labyrinth Rooms
+
 from TBS import Room, Exit
 from typing import Dict
 
