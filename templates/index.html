@@ -222,7 +222,7 @@
     </div>
 
     <script>
-        // ── Hilfsfunktion: Text im Ausgabebereich anzeigen ───────────────
+        //  JavaScript- Funktion zum Hinzufügen von Textzeilen zum output-Bereich
         function print(text, cls = "") {
             const p = document.createElement("p");
             if (cls) p.className = cls;
@@ -234,17 +234,30 @@
             out.scrollTop = out.scrollHeight;
         }
 
-        // senden funktion
+
+        function gameStart() {
+            fetch("/start", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                data.output.forEach(line => print(line));
+            });
+        }
+        window.onload = gameStart;
+        
         async function sendCmd() {
             const input = document.getElementById("cmd");
             const command = input.value.trim();
             if (!command) return;
 
-            // Eingabe des Spielers anzeigen
             print("› " + command, "player-input");
             input.value = "";
 
-            // TODO: Hier kommt später der fetch()-Aufruf zu Flask (/cmd)
+
             fetch("/eingabe", {
                 method: "POST",
                 headers: {
@@ -257,15 +270,12 @@
                 data.output.forEach(line => print(line));
             })
         }
-        // ── Enter-Taste abfangen ─────────────────────────────────────────
         document.getElementById("cmd").addEventListener("keydown", e => {
             if (e.key === "Enter") sendCmd();
         });
 
-        // ── Button-Klick ─────────────────────────────────────────────────
         document.getElementById("send-btn").addEventListener("click", sendCmd);
 
-        // ── Startnachricht beim Laden ─────────────────────────────────────
         print("Du entfaltest einen vergilbten Brief…", "system");
         print("Tippe 'hilfe' für eine Liste der Befehle.", "system");
 
