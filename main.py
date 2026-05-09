@@ -48,7 +48,6 @@ def normalize_dir(token: str) -> str:
     return DIR_ALIASES.get(t, t)
 
 # Definition des Hauptspiel-Loops und des Startpunktes (über Variable START_ROOM)
-print( "\n Das war keine gute Entscheidung, diese Eingabe zu machen. Du bist in einem Labyrinth gelandet. \n Du kannst es nicht sehen, aber es ist da. Du musst einen weg herausfinden. \n Es wäre eine Gute Idee sich umzuschauen, oder nach Hilfe zu Fragen. \n Viel Glück!")
 def game_loop(start_room: str = START_ROOM) -> None:
     state = GameState(
         flags=set(),
@@ -147,6 +146,7 @@ def game_loop(start_room: str = START_ROOM) -> None:
 
 # Hauptprogramm: Spiel starten und ggf. Neustart ermöglichen
 if __name__ == "__main__":
+    print( "\n Das war keine gute Entscheidung, diese Eingabe zu machen. Du bist in einem Labyrinth gelandet. \n Du kannst es nicht sehen, aber es ist da. Du musst einen weg herausfinden. \n Es wäre eine Gute Idee sich umzuschauen, oder nach Hilfe zu Fragen. \n Viel Glück!")
     while True:
         result = game_loop(START_ROOM)
 
