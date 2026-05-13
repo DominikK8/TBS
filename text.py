@@ -9,6 +9,9 @@ WELCOME = ( "\n Das war keine gute Entscheidung, diese Eingabe zu machen. Du bis
 GAME_OVER = ("Du hast einen Ausgang gefunden. Herzlichen Glückwunsch!\n "
              "Drücke 'Q' zum Beenden oder 'N' für ein neues Spiel.")
 
+GAME_OVER_BROWSER = ("Du hast einen Ausgang gefunden. Herzlichen Glückwunsch!\n "
+                     "Drücke 'Q' für ein neues Spiel.")
+
 NEW_GAME = "Neues Spiel startet..."
 
 END_GAME_INPUT_REPETITION = "Bitte 'Q' oder 'N' eingeben."
