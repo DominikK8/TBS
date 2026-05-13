@@ -2,6 +2,7 @@
 from TBS import GameState, Room
 from Rooms import ROOMS
 import random
+import text
 
 #Variablen Definitionen
 DIR_ALIASES = {
@@ -25,12 +26,6 @@ DIR_ALIASES = {
 
 VALID_DIRECTIONS = {"NORTH", "SOUTH", "EAST", "WEST"}
 START_ROOM = "MIDDLE"
-WALL = ["**BOOF** Du läufst vor eine Wand!", 
-        "BÄM! Du bist gegen eine Wand gelaufen!", 
-        "Du stößt gegen eine Wand. Autsch!", 
-        "Puh, du warst dieses Mal ganz vorsichtig und hast rechtzeitig gesehen, dass da eine Wand ist.",
-        "Verd***t, genau mit dem großen Zeh zuerst mitten im Schritt gegen eine Wand.",
-        "Tränen schießen dir in die Augen, eine Wand hat dich und vor allem deine Nase abrupt gebremst."]
 
 #Funktionen
 
@@ -60,8 +55,7 @@ def game_loop(start_room: str = START_ROOM) -> None:
 
         # überprüfen, ob das Spiel vorbei ist (z.B. durch Erreichen eines Ausgangs) und ggf. Neustart oder Beenden anbieten  
         if state.game_over:
-            print("Du hast einen Ausgang gefunden. Herzlichen Glückwunsch!")
-            print("Drücke 'Q' zum Beenden oder 'N' für ein neues Spiel.")
+            print(text.GAME_OVER)
 
             while True:
                 choice = input("> ").strip().lower()
@@ -71,11 +65,11 @@ def game_loop(start_room: str = START_ROOM) -> None:
                     return   # game_loop beenden
 
                 elif choice in ("n", "new", "neu"):
-                    print("Neues Spiel startet...")
+                    print(text.NEW_GAME)
                     return "NEW"  # Signal nach außen
 
                 else:
-                    print("Bitte 'Q' oder 'N' eingeben.")
+                    print(text.END_GAME_INPUT_REPETITION)
 
         # Eingabeaufforderung und Verarbeitung der Befehle
         cmd = input("\n> ").strip()
@@ -92,19 +86,10 @@ def game_loop(start_room: str = START_ROOM) -> None:
             break
 
         if head in ("help", "hilfe", "h", "?"):
-            print("Befehle: umschauen|u, gehe <dir>, oder einfach <dir> (n,s,o,w,...)")
-            #print("          flag <NAME>   (e.g. flag WON-FLAG)")
-            #print("          flags         (show flags)")
-            print("          quit")
-            print("\n")
-            print("Commands: look|l, go <dir>, or just <dir> (n,s,o,w,...)")
-            #print("          flag <NAME>   (e.g. flag WON-FLAG)")
-            #print("          flags         (show flags)")
-            print("          quit")
+            print(text.HELP)
             continue
 
         if head in ("look", "l", "umschauen", "u"):
-            show_room(current)        # Name
             looking_room(current)     # Detaillierte Beschreibung
             continue
 
@@ -128,7 +113,7 @@ def game_loop(start_room: str = START_ROOM) -> None:
 
         # Überprüfen, ob die Richtung gültig ist und ggf. Raumwechsel durchführen
         if direction not in VALID_DIRECTIONS:
-            print(f"Ich kenne die Bedeutung von '{head}' nicht.")
+            print(f"{text.INVALID_COMMAND1} '{head}' {text.INVALID_COMMAND2}")
             continue
         else:
             target = current.try_move(state, direction)
@@ -140,13 +125,13 @@ def game_loop(start_room: str = START_ROOM) -> None:
                     current.action(state, current, cmd)
 
             else:
-                print(random.choice(WALL))
+                print(random.choice(text.WALL))
 
         #state.flush_output()
 
 # Hauptprogramm: Spiel starten und ggf. Neustart ermöglichen
 if __name__ == "__main__":
-    print( "\n Das war keine gute Entscheidung, diese Eingabe zu machen. Du bist in einem Labyrinth gelandet. \n Du kannst es nicht sehen, aber es ist da. Du musst einen weg herausfinden. \n Es wäre eine Gute Idee sich umzuschauen, oder nach Hilfe zu Fragen. \n Viel Glück!")
+    print(text.WELCOME)
     while True:
         result = game_loop(START_ROOM)
 

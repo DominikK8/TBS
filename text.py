@@ -1,6 +1,34 @@
 # text.py
 # Zentrale Textdefinitionen für TBS
-# Enthält Raumnamen (DESC) und Beschreibungen (LDESC)
+
+WELCOME = ( "\n Das war keine gute Entscheidung, diese Eingabe zu machen. Du bist in einem Labyrinth gelandet. \n " 
+           "Du kannst es nicht sehen, aber es ist da. Du musst einen weg herausfinden. \n "
+           "Es wäre eine Gute Idee sich umzuschauen, oder nach Hilfe zu Fragen. \n "
+           "Viel Glück!")
+
+GAME_OVER = ("Du hast einen Ausgang gefunden. Herzlichen Glückwunsch!\n "
+             "Drücke 'Q' zum Beenden oder 'N' für ein neues Spiel.")
+
+NEW_GAME = "Neues Spiel startet..."
+
+END_GAME_INPUT_REPETITION = "Bitte 'Q' oder 'N' eingeben."
+
+HELP = ("Befehle: umschauen|u \n "
+        "gehe <dir>, oder einfach <dir> (n,s,o,w,...) \n"
+        "quit.")
+
+INVALID_COMMAND1 = "Ich kenne die Bedeutung von"
+# zwischendrin wird head in der main.py-Ausgabe eingesetzt
+INVALID_COMMAND2 = "nicht."
+
+WALL = ["**BOOF** Du läufst vor eine Wand!", 
+        "BÄM! Du bist gegen eine Wand gelaufen!", 
+        "Du stößt gegen eine Wand. Autsch!", 
+        "Puh, du warst dieses Mal ganz vorsichtig und hast rechtzeitig gesehen, dass da eine Wand ist.",
+        "Verd***t, genau mit dem großen Zeh zuerst mitten im Schritt gegen eine Wand.",
+        "Tränen schießen dir in die Augen, eine Wand hat dich und vor allem deine Nase abrupt gebremst."]
+
+# Raumnamen (DESC) und Beschreibungen (LDESC)
 
 # =========================================================
 # MIDDLE
