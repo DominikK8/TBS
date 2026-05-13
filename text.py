@@ -31,6 +31,10 @@ WALL = ["**BOOF** Du läufst vor eine Wand!",
         "Verd***t, genau mit dem großen Zeh zuerst mitten im Schritt gegen eine Wand.",
         "Tränen schießen dir in die Augen, eine Wand hat dich und vor allem deine Nase abrupt gebremst."]
 
+QUIT_BROWSER = ["Das Labyrinth verschluckt dich erneut..."]
+
+RESTART_BROWSER = ["Das war keine gute Entscheidung..."]
+
 # Raumnamen (DESC) und Beschreibungen (LDESC)
 
 # =========================================================

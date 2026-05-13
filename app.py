@@ -3,6 +3,7 @@ from TBS import GameState
 from Rooms import ROOMS
 from main import DIR_ALIASES, VALID_DIRECTIONS, START_ROOM, WALL, show_room, looking_room, normalize_dir, game_loop
 import random
+import text 
 
 app = Flask(__name__)
 app.secret_key = 'secret-key'
@@ -14,11 +15,7 @@ def tbs():
 def start():
     session['current_room_id'] = START_ROOM
     current_room = ROOMS[START_ROOM]
-    output = [
-        "Das war keine gute Entscheidung...",
-        "Du bist in einem Labyrinth gelandet.",
-        "Es wäre eine gute Idee sich umzuschauen, oder nach Hilfe zu fragen.",
-        "Viel Glück!",
+    output = [text.WELCOME,
         f"== {current_room.desc} ==",
         current_room.ldesc
     ]
@@ -40,16 +37,19 @@ def eingabe():
         return jsonify(output=output)
 
     elif head in ("help", "hilfe", "h", "?"):
-            output.append("Befehle: umschauen|u, gehe <dir>, oder einfach <dir> (n,s,o,w,...)")
-            output.append("quit")
-            output.append("Commands: look|l, go <dir>, or just <dir> (n,s,o,w,...)")
+            output.append(text.HELP)
             session["current_room_id"] = current_room_id
             return jsonify(output=output)
 
     elif head in ("quit", "exit", "q"):
-            output.append("Bye!")
-            session.pop('current_room_id', None)
-            return jsonify(output=output)
+        session.pop('current_room_id', None)
+        output.append(text.QUIT_BROWSER)
+        # Neustart
+        session['current_room_id'] = START_ROOM
+        current_room = ROOMS[START_ROOM]
+        output.append(text.RESTART_BROWSER)
+        output.append(f"== {current_room.desc} ==")
+        return jsonify(output=output)
 
     else:
         if head in ("go", "gehe") and len(parts) >= 2:
@@ -58,23 +58,22 @@ def eingabe():
             direction = normalize_dir(parts[0]) 
 
         if direction not in VALID_DIRECTIONS: 
-            output.append(f"Ich kenne die Bedeutung von '{head}' nicht.")
-            
+            output.append(text.INVALID_COMMAND1 + f" '{head}' " + text.INVALID_COMMAND2)
         else:      
             target = current_room.try_move(GameState(), direction)
             if target and target in ROOMS:
                 current_room_id = target
                 current_room = ROOMS[current_room_id]
-                output.append(current_room.desc)
-
-            else:
-                    output.append(random.choice(WALL)) 
+                output.append(f"== {current_room.desc} ==")
+                if current_room.action:
+                    current_room.action(GameState(), current_room, command)
                     session["current_room_id"] = current_room_id
                     return jsonify(output=output)
+            else:
+                output.append(random.choice(WALL)) 
             
-            if current_room.action:
-                current_room.action(GameState(), current_room, command)
-                
-    
+        session["current_room_id"] = current_room_id
+        return jsonify(output=output)
+
 if __name__ == '__main__':
      app.run()
