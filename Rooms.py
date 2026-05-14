@@ -273,7 +273,7 @@ ROOM3_1 = Room(
     ldesc="Du bist in einem Gang. Es gibt einen Weg nach Osten und Westen.",
     exits={
         "EAST": Exit("EAST", target="ROOM3_2"),
-        "WEST": Exit("WEST", target="END"),
+        "WEST": Exit("WEST", target="ROOM4_27"),
     },
 )
 
@@ -282,7 +282,7 @@ ROOM3_2 = Room(
     desc="ROOM3_2",
     ldesc="Du bist in einer Spaltung des Weges. Es gibt Wege nach Norden, Süden und Osten und Westen.",
     exits={
-        "NORTH": Exit("NORTH", target="END"),
+        "NORTH": Exit("NORTH", target="ROOM4_1"),
         "SOUTH": Exit("SOUTH", target="ROOM2_1"),
         "EAST": Exit("EAST", target="ROOM3_3"),
         "WEST": Exit("WEST", target="ROOM3_1"),
@@ -324,7 +324,7 @@ ROOM3_6 = Room(
     desc="ROOM3_6",
     ldesc="Du bist in einer Spaltung des Weges. Es gibt Wege nach Norden, Osten und Westen.",
     exits={
-        "NORTH": Exit("NORTH", target="END"),
+        "NORTH": Exit("NORTH", target="ROOM4_5"),
         "EAST": Exit("EAST", target="ROOM3_7"),
         "WEST": Exit("WEST", target="ROOM3_5"),
     },
@@ -336,7 +336,7 @@ ROOM3_7 = Room(
     ldesc="Du bist in einem Gang. Es gibt einen Weg nach Westen und Osten.",
     exits={
         "WEST": Exit("WEST", target="ROOM3_6"),
-        "EAST": Exit("EAST", target="END"),
+        "EAST": Exit("EAST", target="ROOM4_8"),
     },
 )
 
@@ -356,7 +356,7 @@ ROOM3_9 = Room(
     ldesc="Du bist in einer Kurve. Es gibt einen Weg nach Norden und Osten.",
     exits={
         "NORTH": Exit("NORTH", target="ROOM3_8"),
-        "EAST": Exit("EAST", target="END"),
+        "EAST": Exit("EAST", target="ROOM4_10"),
     },
 )
 
@@ -365,7 +365,7 @@ ROOM3_10 = Room(
     desc="ROOM3_10",
     ldesc="Du bist in einer Sackgasse. Es gibt einen Weg nach Osten.",
     exits={
-        "EAST": Exit("EAST", target="END"),
+        "EAST": Exit("EAST", target="ROOM4_11"),
     },
 )
 
@@ -374,8 +374,8 @@ ROOM3_11 = Room(
     desc="ROOM3_11",
     ldesc="Du bist in einer Spaltung des Weges. Es gibt Wege nach Süden, Osten und Westen.",
     exits={
-        "SOUTH": Exit("SOUTH", target="END"),
-        "EAST": Exit("EAST", target="END"),
+        "SOUTH": Exit("SOUTH", target="ROOM4_14"),
+        "EAST": Exit("EAST", target="ROOM4_13"),
         "WEST": Exit("WEST", target="ROOM3_12"),
     },
 )
@@ -415,7 +415,7 @@ ROOM3_15 = Room(
     desc="ROOM3_15",
     ldesc="Du bist in einer Spaltung des Weges. Es gibt Wege nach Norden, Süden, Osten und Westen.",
     exits={
-        "SOUTH": Exit("SOUTH", target="END"),
+        "SOUTH": Exit("SOUTH", target="ROOM4_18"),
         "EAST": Exit("EAST", target="ROOM3_14"),
         "WEST": Exit("WEST", target="ROOM3_16"),
         "NORTH": Exit("NORTH", target="ROOM2_12"),
@@ -438,7 +438,7 @@ ROOM3_17 = Room(
     ldesc="Du bist in einer Kurve. Es gibt einen Weg nach Norden und Westen.",
     exits={
         "NORTH": Exit("NORTH", target="ROOM3_18"),
-        "WEST": Exit("WEST", target="END"),
+        "WEST": Exit("WEST", target="ROOM4_21"),
     },
 )
 
@@ -448,7 +448,7 @@ ROOM3_18 = Room(
     ldesc="Du bist in einer Kurve. Es gibt einen Weg nach Süden und Westen.",
     exits={
         "SOUTH": Exit("SOUTH", target="ROOM3_17"),
-        "WEST": Exit("WEST", target="END"),
+        "WEST": Exit("WEST", target="ROOM4_22"),
     },
 )
 
@@ -488,7 +488,7 @@ ROOM3_22 = Room(
     ldesc="Du bist in einer Kurve. Es gibt einen Weg nach Süden und Westen.",
     exits={
         "SOUTH": Exit("SOUTH", target="ROOM3_21"),
-        "WEST": Exit("WEST", target="END"),
+        "WEST": Exit("WEST", target="ROOM4_27"),
     },
 )
 
@@ -522,8 +522,244 @@ ROOM4_3 = Room(
     },
 )
 
+ROOM4_4 = Room(
+    id="ROOM4_4",
+    desc="ROOM4_4",
+    ldesc="Du bist in einer Sackgasse. Es gibt einen Weg nach Westen.",
+    exits={
+        "WEST": Exit("WEST", target="ROOM4_3"),
+    },
+)
+
+ROOM4_5 = Room(
+    id="ROOM4_5",
+    desc="ROOM4_5",
+    ldesc="Du bist in einer Kurve. Es gibt einen Weg nach Süden und Osten.",
+    exits={
+        "SOUTH": Exit("SOUTH", target="ROOM3_6"),
+        "EAST": Exit("EAST", target="ROOM4_6"),
+    },
+)
+
+ROOM4_6 = Room(
+    id="ROOM4_6",
+    desc="ROOM4_6",
+    ldesc="Du bist in einem Gang. Es gibt einen Weg nach Westen und Osten.",
+    exits={
+        "WEST": Exit("WEST", target="ROOM4_5"),
+        "EAST": Exit("EAST", target="ROOM4_7"),
+    },
+)
+
+ROOM4_7 = Room(
+    id="ROOM4_7",
+    desc="ROOM4_7",
+    ldesc="Du bist in einer Kurve. Es gibt einen Weg nach Süden und Westen.",
+    exits={
+        "SOUTH": Exit("SOUTH", target="ROOM3_8"),
+        "WEST": Exit("WEST", target="ROOM4_6"),
+    },
+)
+
+ROOM4_8 = Room(
+    id="ROOM4_8",
+    desc="ROOM4_8",
+    ldesc="Du bist in einer Kurve. Es gibt einen Weg nach Norden und Westen.",
+    exits={
+        "NORTH": Exit("NORTH", target="ROOM4_7"),
+        "WEST": Exit("WEST", target="ROOM3_7"),
+    },
+)
+
+ROOM4_9 = Room(
+    id="ROOM4_9",
+    desc="ROOM4_9",
+    ldesc="Du bist in einer Kurve. Es gibt einen Weg nach Süden und Osten.",
+    exits={
+        "SOUTH": Exit("SOUTH", target="ROOM4_10"),
+        "EAST": Exit("EAST", target="END"),
+    },
+)
+
+ROOM4_10 = Room(
+    id="ROOM4_10",
+    desc="ROOM4_10",
+    ldesc="Du bist in einer Kurve. Es gibt einen Weg nach Norden und Westen.",
+    exits={
+        "NORTH": Exit("NORTH", target="ROOM4_9"),
+        "WEST": Exit("WEST", target="ROOM3_9"),
+    },
+)
+
+ROOM4_11= Room(
+    id="ROOM4_11",
+    desc="ROOM4_11",
+    ldesc="Du bist in einer Kurve. Es gibt einen Weg nach Süden und Westen.",
+    exits={
+        "SOUTH": Exit("SOUTH", target="ROOM4_12"),
+        "WEST": Exit("WEST", target="ROOM3_9"),
+    },
+)
+
+ROOM4_12 = Room(
+    id="ROOM4_12",
+    desc="ROOM4_12",
+    ldesc="Du bist in einem Gang. Es gibt einen Weg nach Norden und Süden.",
+    exits={
+        "NORTH": Exit("NORTH", target="ROOM4_11"),
+        "SOUTH": Exit("SOUTH", target="ROOM4_13"),
+    },
+)
+
+ROOM4_13= Room(
+    id="ROOM4_13",
+    desc="ROOM4_13",
+    ldesc="Du bist in einer Kurve. Es gibt einen Weg nach Norden und Westen.",
+    exits={
+        "NORTH": Exit("NORTH", target="ROOM4_12"),
+        "WEST": Exit("WEST", target="ROOM3_11"),
+    },
+)
+
+ROOM4_14= Room(
+    id="ROOM4_14",
+    desc="ROOM4_14",
+    ldesc="Du bist in einer Kurve. Es gibt einen Weg nach Norden und Westen.",
+    exits={
+        "NORTH": Exit("NORTH", target="ROOM3_11"),
+        "WEST": Exit("WEST", target="ROOM4_15"),
+    },
+)
+
+ROOM4_15= Room(
+    id="ROOM4_15",
+    desc="ROOM4_15",
+    ldesc="Du bist in einem Gang. Es gibt einen Weg nach Osten und Westen.",
+    exits={
+        "EAST": Exit("EAST", target="ROOM4_14"),
+        "WEST": Exit("WEST", target="ROOM4_16"),
+    },
+)
+
+ROOM4_16= Room(
+    id="ROOM4_16",
+    desc="ROOM4_16",
+    ldesc="Du bist in einem Gang Es gibt einen Weg nach Osten und Westen.",
+    exits={
+        "EAST": Exit("EAST", target="ROOM4_15"),
+        "WEST": Exit("WEST", target="ROOM4_17"),
+    },
+)
+
+ROOM4_17= Room(
+    id="ROOM4_17",
+    desc="ROOM4_17",
+    ldesc="Du bist in einer Sackgasse. Es gibt einen Weg nach Osten.",
+    exits={
+        "EAST": Exit("EAST", target="ROOM4_16"),
+    },
+)
+
+ROOM4_18= Room(
+    id="ROOM4_18",
+    desc="ROOM4_18",
+    ldesc="Du bist in einer Kurve. Es gibt einen Weg nach Norden und Westen.",
+    exits={
+        "NORTH": Exit("NORTH", target="ROOM3_15"),
+        "WEST": Exit("WEST", target="ROOM4_19"),
+    },
+)
+
+ROOM4_19= Room(
+    id="ROOM4_19",
+    desc="ROOM4_19",
+    ldesc="Du bist in einem Gang. Es gibt einen Weg nach Osten und Westen.",
+    exits={
+        "EAST": Exit("EAST", target="ROOM4_18"),
+        "WEST": Exit("WEST", target="ROOM4_20"),
+    },
+)
+
+ROOM4_20= Room(
+    id="ROOM4_20",
+    desc="ROOM4_20",
+    ldesc="Du bist in einer Sackgasse. Es gibt einen Weg nach Osten.",
+    exits={
+        "EAST": Exit("EAST", target="ROOM4_19"),
+    },
+)
+
+ROOM4_21= Room(
+    id="ROOM4_21",
+    desc="ROOM4_21",
+    ldesc="Du bist in einem Gang. Es gibt einen Weg nach Osten und Westen.",
+    exits={
+        "EAST": Exit("EAST", target="ROOM3_17"),
+        "WEST": Exit("WEST", target="END"),
+    },
+)
+
+ROOM4_22= Room(
+    id="ROOM4_22",
+    desc="ROOM4_22",
+    ldesc="Du bist in einer Kurve. Es gibt einen Weg nach Norden und Osten.",
+    exits={
+        "NORTH": Exit("NORTH", target="ROOM4_23"),
+        "EAST": Exit("EAST", target="ROOM3_18"),
+    },
+)
+
+ROOM4_23= Room(
+    id="ROOM4_23",
+    desc="ROOM4_23",
+    ldesc="Du bist in einem Gang. Es gibt einen Weg nach Norden und Süden.",
+    exits={
+        "NORTH": Exit("NORTH", target="ROOM4_24"),
+        "SOUTH": Exit("SOUTH", target="ROOM4_22"),
+    },
+)
+
+ROOM4_24= Room(
+    id="ROOM4_24",
+    desc="ROOM4_24",
+    ldesc="Du bist in einem Gang. Es gibt einen Weg nach Norden und Süden.",
+    exits={
+        "NORTH": Exit("NORTH", target="ROOM4_25"),
+        "SOUTH": Exit("SOUTH", target="ROOM4_23"),
+    },
+)
+
+ROOM4_25= Room(
+    id="ROOM4_25",
+    desc="ROOM4_25",
+    ldesc="Du bist in einem Gang. Es gibt einen Weg nach Norden und Süden.",
+    exits={
+        "NORTH": Exit("NORTH", target="ROOM4_26"),
+        "SOUTH": Exit("SOUTH", target="ROOM4_24"),
+    },
+)
+
+ROOM4_26= Room(
+    id="ROOM4_26",
+    desc="ROOM4_26",
+    ldesc="Du bist in einer Kurve. Es gibt einen Weg nach Osten und Süden.",
+    exits={
+        "EAST": Exit("EAST", target="ROOM3_22"),
+        "SOUTH": Exit("SOUTH", target="ROOM4_25"),
+    },
+)
+
+ROOM4_27= Room(
+    id="ROOM4_27",
+    desc="ROOM4_27",
+    ldesc="Du bist in einer Sackgasse. Es gibt einen Weg nach Osten.",
+    exits={
+        "EAST": Exit("EAST", target="ROOM3_1"),
+    },
+)
+
 
 
 ROOMS: Dict[str, Room] = {
-    r.id: r for r in [MIDDLE, END, ROOM1_1, ROOM1_2, ROOM1_3, ROOM1_4, ROOM1_5, ROOM1_6, ROOM1_7, ROOM1_8, ROOM2_1, ROOM2_2, ROOM2_3, ROOM2_4, ROOM2_5, ROOM2_6, ROOM2_7, ROOM2_8, ROOM2_9, ROOM2_10, ROOM2_11, ROOM2_12, ROOM2_13, ROOM2_14, ROOM2_15, ROOM2_16, ROOM3_1, ROOM3_2, ROOM3_3, ROOM3_4, ROOM3_5, ROOM3_6, ROOM3_7, ROOM3_8, ROOM3_9, ROOM3_10, ROOM3_11, ROOM3_12, ROOM3_13, ROOM3_14, ROOM3_15, ROOM3_16, ROOM3_17, ROOM3_18, ROOM3_19, ROOM3_20, ROOM3_21, ROOM3_22, ROOM4_1, ROOM4_2 ]
+    r.id: r for r in [MIDDLE, END, ROOM1_1, ROOM1_2, ROOM1_3, ROOM1_4, ROOM1_5, ROOM1_6, ROOM1_7, ROOM1_8, ROOM2_1, ROOM2_2, ROOM2_3, ROOM2_4, ROOM2_5, ROOM2_6, ROOM2_7, ROOM2_8, ROOM2_9, ROOM2_10, ROOM2_11, ROOM2_12, ROOM2_13, ROOM2_14, ROOM2_15, ROOM2_16, ROOM3_1, ROOM3_2, ROOM3_3, ROOM3_4, ROOM3_5, ROOM3_6, ROOM3_7, ROOM3_8, ROOM3_9, ROOM3_10, ROOM3_11, ROOM3_12, ROOM3_13, ROOM3_14, ROOM3_15, ROOM3_16, ROOM3_17, ROOM3_18, ROOM3_19, ROOM3_20, ROOM3_21, ROOM3_22, ROOM4_1, ROOM4_2, ROOM4_3, ROOM4_4, ROOM4_5, ROOM4_6, ROOM4_7, ROOM4_8, ROOM4_9, ROOM4_10, ROOM4_11, ROOM4_12, ROOM4_13, ROOM4_14, ROOM4_15, ROOM4_16, ROOM4_17, ROOM4_18, ROOM4_19, ROOM4_20, ROOM4_21, ROOM4_22, ROOM4_23, ROOM4_24, ROOM4_25, ROOM4_26, ROOM4_27 ]
 }
