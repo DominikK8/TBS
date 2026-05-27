@@ -1,28 +1,39 @@
 # text.py
 # Zentrale Textdefinitionen für TBS
 
-WELCOME = ( "\n Das war keine gute Entscheidung, diese Eingabe zu machen. Du bist in einem Labyrinth gelandet. \n " 
-           "Du kannst es nicht sehen, aber es ist da. Du musst einen weg herausfinden. \n "
-           "Es wäre eine Gute Idee sich umzuschauen, oder nach Hilfe zu Fragen. \n "
-           "Viel Glück!")
+WELCOME = ( "\nDu bist mitten in einem Labyrinth gelandet. \n" 
+            "Es ist kalt, modrig, feucht und vor allem dunkel. \n" 
+            "Du kannst nichts sehen, nichtmal die Hände vor deinen Augen, \n"
+            "aber da ist ein Labyrinth, soviel musst du wissen, \n"
+            "und du musst einen weg herausfinden. \n"
+            "Es wäre eine Gute Idee sich umzuschauen, oder nach Hilfe zu Fragen. \n"
+            "Viel Glück!")
 
-GAME_OVER = ("Du hast einen Ausgang gefunden. Herzlichen Glückwunsch!\n "
-             "Drücke 'Q' zum Beenden oder 'N' für ein neues Spiel.")
+GAME_OVER = ("Spiel beenden?\n"
+             "Drücke 'Q' zum Beenden, 'Z' für zurück und 'N' für ein neues Spiel.")
 
-GAME_OVER_BROWSER = ("Du hast einen Ausgang gefunden. Herzlichen Glückwunsch!\n "
-                     "Drücke 'Q' für ein neues Spiel.")
+WON = ("\nDu hast einen Ausgang gefunden! Herzlichen Glückwunsch!\n\n"
+       "Drücke 'Q' zum Beenden oder 'N' für ein neues Spiel.")
+
+GAME_OVER_BROWSER = ("Du hast einen Ausgang gefunden. Herzlichen Glückwunsch!\n"
+                     "Drücke 'N' für ein neues Spiel.")
 
 NEW_GAME = "Neues Spiel startet..."
 
-END_GAME_INPUT_REPETITION = "Bitte 'Q' oder 'N' eingeben."
+END_GAME_INPUT_REPETITION = "Bitte 'Q', 'Z' oder 'N' eingeben."
 
-HELP = ("Befehle: umschauen|u \n "
-        "gehe <dir>, oder einfach <dir> (n,s,o,w,...) \n"
-        "quit.")
+END_GAME_INPUT_REPETITION_WON = "Bitte 'Q' oder 'N' eingeben."
+
+HELP = ("Befehle: \n"
+        "'umschauen' oder 'u' um ein Beschreibung des Abschnitts zu erhalten, in dem du dich befindest.\n \n"
+        "gehe 'norden'; 'westen'; 'süden'; 'osten' oder gehe 'n'; 'w'; 's'; 'o' um dich zu bewegen. \n \n"
+        "'quit' oder 'q' um das Spiel zu beenden.")
 
 INVALID_COMMAND1 = "Ich kenne die Bedeutung von"
 # zwischendrin wird head in der main.py-Ausgabe eingesetzt
 INVALID_COMMAND2 = "nicht."
+
+GO_WHERE = "Wohin möchtest du gehen? Bitte gib eine Richtung an (z.B. 'gehe norden')."
 
 WALL = ["**BOOF** Du läufst vor eine Wand!", 
         "BÄM! Du bist gegen eine Wand gelaufen!", 
@@ -31,9 +42,32 @@ WALL = ["**BOOF** Du läufst vor eine Wand!",
         "Verd***t, genau mit dem großen Zeh zuerst mitten im Schritt gegen eine Wand.",
         "Tränen schießen dir in die Augen, eine Wand hat dich und vor allem deine Nase abrupt gebremst."]
 
-QUIT_BROWSER = ["Das Labyrinth verschluckt dich erneut..."]
+QUIT_BROWSER = ("Das Labyrinth verschluckt dich erneut...")
 
-RESTART_BROWSER = ["Das war keine gute Entscheidung..."]
+QUIT = ("Du hast das Spiel beendet, so wirst du den Ausgang niemals finden.\n"
+        "Mach's gut!")
+
+END = ("Spiel Ende. Danke fürs Spielen!")
+
+RESTART_BROWSER = ("Das war keine gute Entscheidung...")
+
+# Blocked Exit
+
+NO_ITEMS = ("Du hast nichts, das du geben könntest.")
+
+ITEM_CHOICE = ("Wähle ein Item (Zahl) oder 'z' für zurück.")
+
+LEAVE_DIALOG = ("Du wendest dich ab.")
+
+NOT_IN_CHOICE = ("ist nicht in der Auswahl.")
+
+GIVE_ITEM = ("Du gibst der Gestalt:")
+
+REDBUG_UNBLOCK = ("Die Gestalt verschwindet. Der Weg ist frei.")
+
+REDBUG_STAYS = ("Die Gestalt bleibt stehen.")
+
+DIALOG_OPTIONS = ("Antworte mit ja/nein")
 
 # Raumnamen (DESC) und Beschreibungen (LDESC)
 
@@ -43,9 +77,9 @@ RESTART_BROWSER = ["Das war keine gute Entscheidung..."]
 
 MIDDLE_DESC = "Mitte"
 MIDDLE_LDESC = (
-    "Kalte, feuchte Wände liegen dicht um dich herum. Geräusche werden geschluckt,\n"
+    "Geräusche werden geschluckt,\n"
     "als hätte der Ort kein Interesse daran, sie weiterzutragen. \n"
-    "Nach Osten und nach Süden zeichnen sich Wege aus der Dunkelheit ab."
+    "Du kannst es kaum erkennen, aber nach Osten und nach Süden vermutest du Wege, die weiterführen könnten."
 )
 
 # =========================================================
@@ -62,10 +96,10 @@ ROOM1_2_DESC = "Fugenpassage mit Biofilm"
 ROOM1_2_LDESC = (
     "Die Passage endet abrupt. Du fühlst glatte Fugen, die sich in der Dunkelheit über die Wände ziehen."
     "Du fährst die Fugen entlang und spürst plötzlich Kerben. \n"
-    "Es scheint, als wären hier Buchstaben eingeritzt. \n"
-    "Es ist zu dunkel, also tastest du intensiv. \n"
-    "J...U...was ist das für ein Buchstabe...S...T...I...\n"
-    "Jetzt bist du dir sicher, da steht eindeutig 'KERSTIN'."
+    "Du tastest ruhig an den Kerben entlang. Es scheinen Buchstaben zu sein. \n"
+    "Konzentriert ertasteste du sie. \n"
+    "J...U...dann folgt...S...dann...T...I...\n"
+    "Jetzt bist du dir sicher...da steht eindeutig 'KERSTIN'."
 )
 
 ROOM1_3_DESC = "Nische der Sporen"
@@ -96,7 +130,8 @@ ROOM1_6_LDESC = (
 
 ROOM1_7_DESC = "Weg der Myzelspur"
 ROOM1_7_LDESC = (
-    "Mit dem Fuß spürst du Rillen im Boden,denen man folgen könnte."
+    "Mit dem Fuß spürst du Rillen im Boden, denen man folgen könnte \n"
+    "Aber sie enden im Nichts."
 )
 
 ROOM1_8_DESC = "Echokammer des Faulholzes"
@@ -141,7 +176,7 @@ ROOM2_5_DESC = "Steg der Tarsen"
 ROOM2_5_LDESC = (
     "Der Steg verbindet mehrere Richtungen, schmal und fest zugleich. \n"
     "Nach Süden bleibt alles gedrungen, nach Westen führt der Weg zurück. \n"
-    "Im Osten wird die Luft ist klarer."
+    "Im Osten wird die Luft klarer."
 )
 
 ROOM2_6_DESC = "Gewölbe der Facetten"
@@ -157,7 +192,8 @@ ROOM2_7_LDESC = (
     "Der Gang endet still und unbewegt. \n"
     "Dich überkommt ein Gefühl des rapiden Alterns.\n"
     "Du fühlst dich als wäre das wichtigste im Leben ausreichend Schlaf zu bekommen. \n"
-    "Du bist wohl kurz weg genickt, karim ja mal passieren. \n"
+    "Du schüttelst dich und kommst wieder zu dir. \n"
+    "Du bist wohl kurz weggenickt, karim ja mal passieren. \n"
     "Nach Süden führt der einzige Weg zurück."
 )
 
@@ -313,7 +349,7 @@ ROOM3_14_LDESC = (
     "Die Ränder des Ganges sind dunkler als sein Zentrum. \n"
     "Wege führen nach Westen, nach Osten und nach Süden. \n"
     "Ein kalter Luftzug lässt dich frösteln, er tanzt um dich herum,\n"
-    "so dass du nicht sagen feststellen kannst, aus welcher Richtung er kommt."
+    "so dass du nicht genau feststellen kannst, aus welcher Richtung er kommt."
 )
 
 ROOM3_15_DESC = "Kreuzung der Spaltöffnungen"
@@ -362,7 +398,7 @@ ROOM3_22_DESC = "Kurve der Knospenruhe"
 ROOM3_22_LDESC = (
     "Der Weg biegt ab und verschwindet teilweise aus dem Blick. \n"
     "Du kannst nach Süden gehen oder nach Westen folgen. \n"
-    "Die Luft aus Westenwirkt frisch, nicht mehr verbraucht, du kannst alles erkennen, da es es fast schon hell ist."
+    "Die Luft aus Westen wirkt frisch, nicht mehr verbraucht, du kannst alles erkennen, da es es fast schon hell ist."
 )
 
 # =========================================================
@@ -394,7 +430,7 @@ ROOM4_4_LDESC = (
     "Endlich Licht, du siehst es deutlich, es brennt dir in den Augen. \n"
     "Nachdem sich die Augen an das grelle Licht gewöhnt haben, siehst du, es ist nur ein Loch in der Wand. \n"
     "Es ist zu hoch, du kommst nicht hin, es ist auch zu klein, du kommst nicht durch. \n"
-    "Das Licht macht dir Hoffnung, aber es scheint unerreichbar, die bleibt nichts übrig als nach Westen zurückzugehen."
+    "Das Licht macht dir Hoffnung, aber es scheint unerreichbar, dir bleibt nichts übrig als nach Westen zurückzugehen."
 )
 
 ROOM4_5_DESC = "Gewölbe des Duftes"
@@ -503,7 +539,7 @@ ROOM4_20_LDESC = (
 ROOM4_21_DESC = "Gewölbe der Lichtfenster"
 ROOM4_21_LDESC = (
     "Über dir öffnet sich das Gewölbe in mehreren hellen Flächen. \n"
-    "Wege führen nach Westen und nach Osten."
+    "Wege führen nach Norden und nach Osten."
 )
 
 ROOM4_22_DESC = "Gang der Blütenstände"
