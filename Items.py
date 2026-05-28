@@ -1,26 +1,41 @@
 from TBS import Item
+import text
 
 ALL_ITEMS = {
     "MATCHBOX": Item(
         flag_name="ITEM_MATCHBOX",
-        name="Matchbox-Auto",
-        item_desc="Du findest ein Matchbox-Auto und nimmst es mit.",
-        item_reaktion="Dieses Modell suche ich schon seit ich ein kleiner Mann war.",
+        name=text.MATCHBOX_NAME,
+        item_desc=text.MATCHBOX_DESC,
+        item_reaktion=text.MATCHBOX_REACT,
         used_flag="MATCHBOX_USED",
         solves= ["BLOCK_REDBUG"]
     ),
+    "AIDA": Item(
+        flag_name="ITEM_AIDA",
+        name=text.AIDA_NAME,
+        item_desc=text.AIDA_DESC,
+        item_reaktion=text.AIDA_REACT,
+        used_flag="AIDA_USED"
+    ),
+    "DOOR": Item(
+        flag_name="ITEM_DOOR",
+        name=text.DOOR_NAME,
+        item_desc=text.DOOR_DESC,
+        item_reaktion=text.DOOR_REACT,
+        used_flag="DOOR_USED"
+    ),
     "KEY": Item(
         flag_name="ITEM_KEY",
-        name="Schlüssel",
-        item_desc="Ein alter Schlüssel liegt hier.",
-        item_reaktion="Der Schlüssel passt perfekt.",
+        name=text.KEY_NAME,
+        item_desc=text.KEY_DESC,
+        item_reaktion=text.KEY_REACT,
         used_flag="KEY_USED"
     ),
-        "LIGHTER": Item(
-        flag_name="ITEM_LIGHTER",
-        name="Feuerzeug",
-        item_desc="In der Ecke liegt ein Feuerzeug, du steckst es in deine Tasche.",
-        item_reaktion="Nur Raucher brauchen ein Feuerzeug in der Tasche, damit kann ich nichts anfangen.",
-        used_flag="LIGHTER_USED"
+    "DOCUMENT": Item(
+        flag_name="ITEM_DOCUMENT",
+        name=text.DOCUMENT_NAME,
+        item_desc=text.DOCUMENT_DESC,
+        item_reaktion=text.DOCUMENT_REACT,
+        used_flag="DOCUMENT_USED"
     ),
 }

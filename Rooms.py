@@ -8,8 +8,6 @@ import text
 END = Room(
     id="END",
     desc="Ein Ausgang!",
-    #flags={"WON-FLAG"},
-    #exits={},
     action=Room.end_action,
 )
 
@@ -21,7 +19,6 @@ MIDDLE = Room(
         "EAST":  Exit("EAST", target="ROOM1_4"),
         "SOUTH": Exit("SOUTH", target="ROOM1_6"),
     },
-    item=ALL_ITEMS["LIGHTER"]
 )
 
 ROOM1_1 = Room(
@@ -62,7 +59,6 @@ ROOM1_4 = Room(
         "WEST": Exit("WEST", target="MIDDLE"),
         "SOUTH": Exit("SOUTH", target="ROOM1_5"),
     },
-    item=ALL_ITEMS["MATCHBOX"]
 )
 
 ROOM1_5 = Room(
@@ -71,7 +67,7 @@ ROOM1_5 = Room(
     ldesc=text.ROOM1_5_LDESC,
     exits={
         "NORTH": Exit("NORTH", target="ROOM1_4"),
-        "EAST": Exit("EAST", target="ROOM2_8", condition= FlagCondition("BLOCK_REDBUG"), blocked_msg="\nEine große Gestalt mit bunter Jacke, Brille und hochstehenden kurzen Haaren versperrt den Weg nach Osten.\nSie sagt: Buongiorno, äh, ich meine: sind noch alle da?\nHast du etwas für mich?"),
+        "EAST": Exit("EAST", target="ROOM2_8"),
     },
 )
 
@@ -187,6 +183,7 @@ ROOM2_8 = Room(
         "SOUTH": Exit("SOUTH", target="ROOM2_9"),
         "WEST": Exit("WEST", target="ROOM1_5"),
     },
+    item=ALL_ITEMS["KEY"]
 )
 
 ROOM2_9 = Room(
@@ -269,6 +266,7 @@ ROOM2_16 = Room(
         "SOUTH": Exit("SOUTH", target="ROOM2_15"),
         "EAST": Exit("EAST", target="ROOM1_1"),
     },
+    item=ALL_ITEMS["AIDA"]
 )
 
 ROOM3_1 = Room(
@@ -333,6 +331,7 @@ ROOM3_6 = Room(
         "EAST": Exit("EAST", target="ROOM3_7"),
         "WEST": Exit("WEST", target="ROOM3_5"),
     },
+    item=ALL_ITEMS["DOCUMENT"]
 )
 
 ROOM3_7 = Room(
@@ -384,6 +383,7 @@ ROOM3_11 = Room(
         "EAST": Exit("EAST", target="ROOM4_12"),
         "WEST": Exit("WEST", target="ROOM3_12"),
     },
+    item=ALL_ITEMS["DOOR"]
 )
 
 ROOM3_12 = Room(
@@ -574,6 +574,7 @@ ROOM4_8 = Room(
     exits={
         "NORTH": Exit("NORTH", target="ROOM4_7"),
         "WEST": Exit("WEST", target="ROOM3_7"),
+        "SOUTH": Exit("SOUTH", target="ROOM4_9")
     },
 )
 
@@ -583,7 +584,10 @@ ROOM4_9 = Room(
     ldesc=text.ROOM4_9_LDESC,
     exits={
         "SOUTH": Exit("SOUTH", target="ROOM4_10"),
-        "EAST": Exit("EAST", target="END"),
+        "EAST": Exit("EAST", target="END",
+                     condition= FlagCondition("BLOCK_REDBUG"), 
+                     blocked_msg=text.REDBUCK_BLOCKED_MSG,
+                     blocked_msg_general=text.REDBUCK_BLOCKED_MSG_GENERAL),
         "NORTH": Exit("NORTH", target="ROOM4_8"),
     },
 )
@@ -753,6 +757,7 @@ ROOM4_26= Room(
     exits={
         "EAST": Exit("EAST", target="ROOM3_1"),
     },
+    item=ALL_ITEMS["MATCHBOX"]
 )
 
 ROOMS: Dict[str, Room] = {

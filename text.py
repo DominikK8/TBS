@@ -1,12 +1,19 @@
-# text.py
-# Zentrale Textdefinitionen für TBS
+# ---------------------------------------------------------
+# =========================================================
+# TEXTDEFINITONS
+# =========================================================
+# ---------------------------------------------------------
 
-WELCOME = ( "\nDu bist mitten in einem Labyrinth gelandet. \n" 
-            "Es ist kalt, modrig, feucht und vor allem dunkel. \n" 
-            "Du kannst nichts sehen, nichtmal die Hände vor deinen Augen, \n"
-            "aber da ist ein Labyrinth, soviel musst du wissen, \n"
-            "und du musst einen weg herausfinden. \n"
-            "Es wäre eine Gute Idee sich umzuschauen, oder nach Hilfe zu Fragen. \n"
+# =========================================================
+# GENERAL
+# =========================================================
+
+WELCOME = ( "\nDu bist mitten in einem Labyrinth gelandet.\n" 
+            "Es ist kalt, modrig, feucht und vor allem dunkel.\n" 
+            "Du kannst nichts sehen, nichtmal die Hände vor deinen Augen,\n"
+            "aber da ist ein Labyrinth, soviel musst du wissen,\n"
+            "und du musst einen weg herausfinden.\n"
+            "Es wäre eine Gute Idee sich umzuschauen, oder nach Hilfe zu Fragen.\n"
             "Viel Glück!")
 
 GAME_OVER = ("Spiel beenden?\n"
@@ -51,7 +58,9 @@ END = ("Spiel Ende. Danke fürs Spielen!")
 
 RESTART_BROWSER = ("Das war keine gute Entscheidung...")
 
-# Blocked Exit
+# =========================================================
+# BLOCKED EXITS
+# =========================================================
 
 NO_ITEMS = ("Du hast nichts, das du geben könntest.")
 
@@ -63,13 +72,43 @@ NOT_IN_CHOICE = ("ist nicht in der Auswahl.")
 
 GIVE_ITEM = ("Du gibst der Gestalt:")
 
+REDBUCK_BLOCKED_MSG = ("\nEine große Gestalt mit bunter Jacke, Brille und hochstehenden kurzen Haaren versperrt den Weg nach Osten.\nSie sagt: Buongiorno, äh, ich meine: sind noch alle da?\nHast du etwas für mich?")
+REDBUCK_BLOCKED_MSG_GENERAL = ("Eine Gestalt versperrt den Weg.")
 REDBUG_UNBLOCK = ("Die Gestalt verschwindet. Der Weg ist frei.")
-
-REDBUG_STAYS = ("Die Gestalt bleibt stehen.")
+REDBUG_STAYS = ("Die Gestalt rührt sich nicht und verperrt den Weg nach wie vor.")
 
 DIALOG_OPTIONS = ("Antworte mit ja/nein")
 
-# Raumnamen (DESC) und Beschreibungen (LDESC)
+# =========================================================
+# ITEMS
+# =========================================================
+
+MATCHBOX_NAME = ("Matchbox-Auto")
+MATCHBOX_DESC = ("Du findest ein Matchbox-Auto und nimmst es mit.")
+MATCHBOX_REACT = ("Dieses Modell suche ich schon seit ich ein kleiner Mann war.\nIch werde es sofort meiner Sammlung hinzufügen.")
+
+AIDA_NAME = ("AIDA Modell")
+AIDA_DESC = ("In der Wand steckt etwas, ein kleines Schiff,\nes stand mal etwas darauf, irgendwas mit A..., du packst es ein.")
+AIDA_REACT = ("Oh, ein kleines Kreuzfahrtschiff, wie schön,\nich mag Kreuzfahrten, ich behalte es.")
+
+DOOR_NAME = ("Tür eines Straßen-Sicherungs-Kastens")
+DOOR_DESC = ("An der Wand lehnt eine Tür von einem Straßen-Sicherungs-Kasten,\ndie Schaniere sind Defekt, du steckst sie trotzdem ein.")
+DOOR_REACT = ("Ha, das erinnert mich an die doofe EAM, die meint, dass sie mich abziehen könnte.")
+
+KEY_NAME = ("Schlüsselbund")
+KEY_DESC = ("Du findest einen Schlüsselbund mit einem herausziehbaren Band.")
+KEY_REACT = ("Du hast meinen Schlüssel gefunden, danke, den habe ich schon gesucht.")
+
+DOCUMENT_NAME = ("Dokument")
+DOCUMENT_DESC = ("Es liegen Blätter auf dem Boden, darauf sind unterstrichene Überschriften zu sehen.\nDu steckst es ein.")
+DOCUMENT_REACT = ("Man unterschreicht keine Überschriften mehr, seit Jahrzenten nicht,\nDie Gestalt wird zornig.")
+
+# ---------------------------------------------------------
+# =========================================================
+# ROOMS
+# =========================================================
+# ---------------------------------------------------------
+
 
 # =========================================================
 # MIDDLE
@@ -454,13 +493,13 @@ ROOM4_7_LDESC = (
 ROOM4_8_DESC = "Schwelle des Fruchtstands"
 ROOM4_8_LDESC = (
     "Der Raum wirkt wie ein Übergang, nichts hier scheint endgültig. \n"
-    "Du kannst nach Westen zurück oder nach Osten weitergehen."
+    "Du kannst nach Westen zurück, nach Norden, oder nach Süden weitergehen."
 )
 
 ROOM4_9_DESC = "Schacht des Samenflaums"
 ROOM4_9_LDESC = (
     "Der Schacht wirkt leicht und offen, als würde er mehr tragen als halten. \n"
-    "Wege führen nach Norden und nach Süden."
+    "Wege führen nach Norden, Süden und aus Osten kommt strahlend helles Licht."
 )
 
 ROOM4_10_DESC = "Korridor des Griffels"
