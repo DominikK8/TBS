@@ -96,10 +96,10 @@ def game_loop(start_room: str = START_ROOM) -> Optional[str]:
                         show_room(current)
                         break  
                     else:
-                        print(text.END_GAME_INPUT_REPETITION_WON)
+                        print(text.END_GAME_INPUT_REPETITION)
                     
                 else:
-                    print(text.END_GAME_INPUT_REPETITION)
+                    print(text.END_GAME_INPUT_REPETITION_WON)
 
         # Eingabeaufforderung und Verarbeitung der Befehle
         cmd = input("\n> ").strip()
@@ -187,7 +187,7 @@ def game_loop(start_room: str = START_ROOM) -> Optional[str]:
                     continue
 
             continue
-
+        
         # Richtung aus dem Befehl extrahieren (z.B. "go east" -> "EAST", "n" -> "NORTH", ...)
         direction = None
         if head in ("go", "gehe") and len(parts) >= 2:
