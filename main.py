@@ -183,8 +183,7 @@ def game_loop(start_room: str = START_ROOM) -> Optional[str]:
                 elif choice in ("n", "nein"):
                     print(text.LEAVE_DIALOG)
                 else:
-                    print(text.DIALOG_OPTIONS)
-                    continue
+                    print(text.DIALOG_OPTIONS)                    
 
             continue
         
