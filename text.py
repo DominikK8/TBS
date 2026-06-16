@@ -475,7 +475,7 @@ ROOM4_4_LDESC = (
 ROOM4_5_DESC = "Gewölbe des Duftes"
 ROOM4_5_LDESC = (
     "Der Raum wirkt weit und schwebend, als trüge er mehr als nur Luft. \n"
-    "Wege führen nach Westen und nach Osten."
+    "Wege führen nach Süden und nach Osten."
 )
 
 ROOM4_6_DESC = "Gang der Bestäubung"
