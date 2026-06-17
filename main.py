@@ -59,6 +59,13 @@ def current_items_list_enumerate(current_items):
         result.append(f"{i}) {it.display_name()}")
     return result
 
+# Erstellen einer Inventarliste zur Anzeige
+def inventory_lines(state):
+    current_items = current_items_list(state)
+    if not current_items:
+        return [text.INVENTORY_EMPTY]
+    return [text.INVENTORY_HEADER] + [f"- {it.display_name()}" for it in current_items]
+
 # Definition des Hauptspiel-Loops und des Startpunktes (über Variable START_ROOM)
 def game_loop(start_room: str = START_ROOM) -> Optional[str]:
     state = GameState(
@@ -117,6 +124,11 @@ def game_loop(start_room: str = START_ROOM) -> Optional[str]:
 
         if head in ("help", "hilfe", "h", "?"):
             print(text.HELP)
+            continue
+
+        if head in ("inv", "inventory", "i"):
+            for line in inventory_lines(state):
+                print(line)
             continue
         # umschauen ist zentrale interaktion
         if head in ("look", "l", "umschauen", "u"):
@@ -218,7 +230,6 @@ def game_loop(start_room: str = START_ROOM) -> Optional[str]:
             # Kein Ausgang, keine Blockade, also Wand
             else:
                 print(random.choice(text.WALL))
-
 
 # Hauptprogramm: Spiel starten und ggf. Neustart ermöglichen
 if __name__ == "__main__":
