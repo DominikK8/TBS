@@ -1,6 +1,7 @@
 from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Callable, Dict, Optional, Set, Union, Tuple
+import text_utils
 
 # Basisklasse mit Verweis auf spätere Definition
 class Condition:
@@ -117,7 +118,23 @@ class Room:
                 if isinstance(ex.condition, FlagCondition):
                     blocker_flag = ex.condition.flag
         return blocker_flag if blocker_flag else None
+
+    def get_available_exits(self, state: "GameState"):
+    # nur erlaubte Exits (keine blockierten!)
+        return [
+        direction.upper()
+        for direction, ex in self.exits.items()
+        if ex.allowed(state)
+        ]
+    #     return [
+    #     direction for direction, ex in self.exits.items()
+    #     if ex.allowed(state)
+    # ]
     
+    def get_exit_text(self, state: "GameState"):
+        exits = self.get_available_exits(state)
+        return text_utils.format_exit_text(exits)
+
     # setzen der Spielende Kriterien (zur Zeit, wenn ein END Raum betreten wird)
     @staticmethod
     def end_action(state: "GameState", room: "Room", cmd: str) -> None:

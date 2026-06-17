@@ -104,6 +104,7 @@ def eingabe():
 
     if head in ("look", "l", "umschauen", "u"):
         output.append(current_room.ldesc)
+        output.append(current_room.get_exit_text(state))
         # Item im Raum
         itemtext = current_room.find_item(state)
         if itemtext:
