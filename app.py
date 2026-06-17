@@ -122,6 +122,7 @@ def eingabe():
 
     elif head in ("quit", "exit", "q"):
         session.clear()
+        current_room_id = START_ROOM
         session['current_room_id'] = START_ROOM
         session['flags'] = []
         session['dialog'] = None
@@ -160,4 +161,4 @@ def eingabe():
     return jsonify(output=output)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='127.0.0.1', port=5000, debug=True)
