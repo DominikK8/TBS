@@ -24,6 +24,7 @@ def start():
         text.WELCOME,
         f"== {current_room.desc} ==",
         current_room.ldesc
+# Ausgabe der verfügbaren Exits hinzufügen
     ]
     return jsonify(output=output)
 
@@ -104,6 +105,7 @@ def eingabe():
 
     if head in ("look", "l", "umschauen", "u"):
         output.append(current_room.ldesc)
+        output.append(current_room.get_exit_text(state))
         # Item im Raum
         itemtext = current_room.find_item(state)
         if itemtext:

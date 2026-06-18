@@ -135,6 +135,7 @@ def game_loop(start_room: str = START_ROOM) -> Optional[str]:
             # Ausgabe Raumname und Beschreibung (desc und ldesc)
             show_room(current)
             looking_room(current)
+            print(current.get_exit_text(state))
             # Wenn Item im Raum wird es Gefunden und aufgenommen
             itemtext = current.find_item(state)
             if itemtext:
