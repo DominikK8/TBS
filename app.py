@@ -1,7 +1,7 @@
 from flask import Flask, render_template, jsonify, request, session
 from TBS import GameState
 from Rooms import ROOMS
-from main import VALID_DIRECTIONS, START_ROOM, normalize_dir, current_items_list, current_items_list_enumerate
+from main import VALID_DIRECTIONS, START_ROOM, normalize_dir, current_items_list, current_items_list_enumerate, inventory_lines
 import random
 import text
 from Items import ALL_ITEMS
@@ -24,6 +24,7 @@ def start():
         text.WELCOME,
         f"== {current_room.desc} ==",
         current_room.ldesc
+# Ausgabe der verfügbaren Exits hinzufügen
     ]
     return jsonify(output=output)
 
@@ -104,6 +105,7 @@ def eingabe():
 
     if head in ("look", "l", "umschauen", "u"):
         output.append(current_room.ldesc)
+        output.append(current_room.get_exit_text(state))
         # Item im Raum
         itemtext = current_room.find_item(state)
         if itemtext:
@@ -119,6 +121,11 @@ def eingabe():
 
     elif head in ("help", "hilfe", "h", "?"):
         output.append(text.HELP)
+
+    elif head in ("inv", "inventory", "i"):
+        output.extend(inventory_lines(state))
+        session['flags'] = list(state.flags)
+        return jsonify(output=output)
 
     elif head in ("quit", "exit", "q"):
         session.clear()
