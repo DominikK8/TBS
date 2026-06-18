@@ -122,7 +122,6 @@ MIDDLE_DESC = "Mitte"
 MIDDLE_LDESC = (
     "Geräusche werden geschluckt,\n"
     "als hätte der Ort kein Interesse daran, sie weiterzutragen. \n"
-    "Du kannst es kaum erkennen, aber nach Osten und nach Süden vermutest du Wege, die weiterführen könnten."
 )
 
 # =========================================================
@@ -158,7 +157,6 @@ ROOM1_4_LDESC = (
 ROOM1_5_DESC = "Winkel des Schimmelflaums"
 ROOM1_5_LDESC = (
     "Du fährst in der Dunkelheit die Wand ab und fühlst matten Flaum. \n"
-    "Nach Norden führt der Weg zurück. \n"
 )
 
 ROOM1_6_DESC = "Bruchkante der Zersetzer"
@@ -291,7 +289,6 @@ ROOM3_1_LDESC = (
 ROOM3_2_DESC = "Hof der Rhizome"
 ROOM3_2_LDESC = (
     "Der Hof öffnet sich weit, Linien verzweigen sich unter deinen Füßen. \n"
-    "Wege führen nach Norden, Süden, Osten und Westen. \n"
 )
 
 ROOM3_3_DESC = "Gang der Schattenblätter"
