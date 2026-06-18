@@ -1,4 +1,5 @@
 import text
+import random
 
 DIRECTION_NAMES = {
     "NORTH": "Norden",
@@ -14,12 +15,15 @@ def format_exit_text(directions):
     names = [DIRECTION_NAMES[d] for d in directions]
 
     if not names:
-        return "Es gibt keine Ausgänge."
+        return random.choice(text.NO_EXITS)
 
     if len(names) == 1:
-        return f"Es gibt einen Weg nach {names[0]}."
+        return random.choice(text.ONE_EXIT).format(names[0])
 
     if len(names) == 2:
-        return f"Es gibt Wege nach {names[0]} und {names[1]}."
+        return random.choice(text.TWO_EXITS).format(names[0], names[1])
 
-    return f"Es gibt Wege nach {', '.join(names[:-1])} und {names[-1]}."
+    if len(names) == 3:
+        return random.choice(text.THREE_EXITS).format(names[0], names[1], names[2])
+
+    return random.choice(text.FOUR_EXITS).format(names[0], names[1], names[2], names[3])

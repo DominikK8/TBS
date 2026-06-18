@@ -24,6 +24,7 @@ def start():
         text.WELCOME,
         f"== {current_room.desc} ==",
         current_room.ldesc
+# Ausgabe der verfügbaren Exits hinzufügen
     ]
     return jsonify(output=output)
 
