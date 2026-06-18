@@ -1,12 +1,16 @@
+import os
+import sys
+import random
+
 from flask import Flask, render_template, jsonify, request, session
 from TBS import GameState
 from Rooms import ROOMS
 from main import VALID_DIRECTIONS, START_ROOM, normalize_dir, current_items_list, current_items_list_enumerate, inventory_lines
-import random
 import text
 from Items import ALL_ITEMS
 
-app = Flask(__name__)
+base_path = getattr(sys, '_MEIPASS', os.path.abspath(os.path.dirname(__file__)))
+app = Flask(__name__, template_folder=os.path.join(base_path, 'templates'))
 app.secret_key = 'secret-key'
 
 @app.route('/')
@@ -23,8 +27,8 @@ def start():
     output = [
         text.WELCOME,
         f"== {current_room.desc} ==",
-        current_room.ldesc
-# Ausgabe der verfügbaren Exits hinzufügen
+        current_room.ldesc,
+        current_room.get_exit_text(GameState(flags=set()))
     ]
     return jsonify(output=output)
 
@@ -168,4 +172,10 @@ def eingabe():
     return jsonify(output=output)
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5000, debug=True)
+    frozen = getattr(sys, 'frozen', False)
+    app.run(
+        host='127.0.0.1',
+        port=5000,
+        debug=not frozen,
+        use_reloader=not frozen
+    )

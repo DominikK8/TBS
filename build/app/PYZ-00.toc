@@ -1,15 +1,15 @@
-('C:\\Users\\prkw\\OneDrive - Carrier Corporation\\Meine Dateien\\1 '
+('c:\\Users\\prkw\\OneDrive - Carrier Corporation\\Meine Dateien\\1 '
  'Projekte\\S_LF5_TBS\\TBS\\build\\app\\PYZ-00.pyz',
  [('Items',
-   'C:\\Users\\prkw\\OneDrive - Carrier Corporation\\Meine Dateien\\1 '
+   'c:\\Users\\prkw\\OneDrive - Carrier Corporation\\Meine Dateien\\1 '
    'Projekte\\S_LF5_TBS\\TBS\\Items.py',
    'PYMODULE'),
   ('Rooms',
-   'C:\\Users\\prkw\\OneDrive - Carrier Corporation\\Meine Dateien\\1 '
+   'c:\\Users\\prkw\\OneDrive - Carrier Corporation\\Meine Dateien\\1 '
    'Projekte\\S_LF5_TBS\\TBS\\Rooms.py',
    'PYMODULE'),
   ('TBS',
-   'C:\\Users\\prkw\\OneDrive - Carrier Corporation\\Meine Dateien\\1 '
+   'c:\\Users\\prkw\\OneDrive - Carrier Corporation\\Meine Dateien\\1 '
    'Projekte\\S_LF5_TBS\\TBS\\TBS.py',
    'PYMODULE'),
   ('__future__',
@@ -848,7 +848,7 @@
    'C:\\Users\\prkw\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\lzma.py',
    'PYMODULE'),
   ('main',
-   'C:\\Users\\prkw\\OneDrive - Carrier Corporation\\Meine Dateien\\1 '
+   'c:\\Users\\prkw\\OneDrive - Carrier Corporation\\Meine Dateien\\1 '
    'Projekte\\S_LF5_TBS\\TBS\\main.py',
    'PYMODULE'),
   ('markupsafe',
@@ -1642,8 +1642,12 @@
    'C:\\Users\\prkw\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\tempfile.py',
    'PYMODULE'),
   ('text',
-   'C:\\Users\\prkw\\OneDrive - Carrier Corporation\\Meine Dateien\\1 '
+   'c:\\Users\\prkw\\OneDrive - Carrier Corporation\\Meine Dateien\\1 '
    'Projekte\\S_LF5_TBS\\TBS\\text.py',
+   'PYMODULE'),
+  ('text_utils',
+   'c:\\Users\\prkw\\OneDrive - Carrier Corporation\\Meine Dateien\\1 '
+   'Projekte\\S_LF5_TBS\\TBS\\text_utils.py',
    'PYMODULE'),
   ('textwrap',
    'C:\\Users\\prkw\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\textwrap.py',
