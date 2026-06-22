@@ -212,7 +212,7 @@ def game_loop(start_room: str = START_ROOM) -> Optional[str]:
         
         # Überprüfen, ob die Richtung gültig ist und ggf. Raumwechsel durchführen
         if direction not in VALID_DIRECTIONS:
-            print(text.INVALID_COMMAND1 + f" '{head}' " + text.INVALID_COMMAND2)
+            print(text.INVALID_COMMAND1.format(head))
             continue
         else:            
             result, status = current.try_move(state, direction)

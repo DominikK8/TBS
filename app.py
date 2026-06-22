@@ -153,7 +153,7 @@ def eingabe():
             direction = normalize_dir(parts[0])
 
         if direction not in VALID_DIRECTIONS:
-            output.append(text.INVALID_COMMAND1 + f" '{head}' " + text.INVALID_COMMAND2)
+            output.append(text.INVALID_COMMAND1.format(head))
         else:
             result, status = current_room.try_move(state, direction)
             if status == "OK":

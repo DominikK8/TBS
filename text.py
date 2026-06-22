@@ -40,9 +40,7 @@ HELP = ("Befehle: \n"
 INVENTORY_HEADER = "Inventar:"
 INVENTORY_EMPTY = "Du hast derzeit keine Gegenstände."
 
-INVALID_COMMAND1 = "Ich kenne die Bedeutung von"
-# zwischendrin wird head in der main.py-Ausgabe eingesetzt
-INVALID_COMMAND2 = "nicht."
+INVALID_COMMAND1 = "Ich kenne die Bedeutung von {} nicht."
 
 GO_WHERE = "Wohin möchtest du gehen? Bitte gib eine Richtung an (z.B. 'gehe norden')."
 
@@ -64,9 +62,9 @@ RESTART_BROWSER = ("Das war keine gute Entscheidung...")
 
 NO_EXITS = ("Es gibt keine Ausgänge.")
 
-ONE_EXIT = ["Es gibt einen Weg nach .",
-            "Du kannst nach .",
-            "Es führt ein Weg nach .",
+ONE_EXIT = ["Es gibt einen Weg nach {}.",
+            "Du kannst nach {} gehen.",
+            "Es führt ein Weg nach {}.",
             "{} ist der einzige Weg, den du gehen kannst."]
 
 TWO_EXITS = ["Es gibt Wege nach {} und {}.",
