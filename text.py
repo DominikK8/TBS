@@ -208,7 +208,6 @@ ROOM1_8_LDESC = (
 ROOM2_1_DESC = "Flur der Chitinspur"
 ROOM2_1_LDESC = (
     "Der Flur wirkt härter, geschlossener, fast gepanzert. \n"
-    "Nach Süden führt der Weg weiter durch feste Strukturen. \n"
 )
 
 ROOM2_2_DESC = "Hof der Fühler"
@@ -221,19 +220,16 @@ ROOM2_2_LDESC = (
 ROOM2_3_DESC = "Nische der Larvenhaut"
 ROOM2_3_LDESC = (
     "Dünne Schichten liegen übereinander, wie abgestreift. \n"
-    "Wege führen nach Osten und nach Westen. \n"
 )
 
 ROOM2_4_DESC = "Passage des Kokons"
 ROOM2_4_LDESC = (
     "Die Passage ist gedämpft, fast umhüllt. \n"
-    "Sie setzt sich nach Westen und nach Osten fort. \n"
 )
 
 ROOM2_5_DESC = "Steg der Tarsen"
 ROOM2_5_LDESC = (
     "Der Steg verbindet mehrere Richtungen, schmal und fest zugleich. \n"
-    "Nach Süden bleibt alles gedrungen, nach Westen führt der Weg zurück. \n"
 )
 
 ROOM2_6_DESC = "Gewölbe der Facetten"
@@ -251,7 +247,6 @@ ROOM2_7_LDESC = (
     "Du fühlst dich als wäre das wichtigste im Leben ausreichend Schlaf zu bekommen. \n"
     "Du schüttelst dich und kommst wieder zu dir. \n"
     "Du bist wohl kurz weggenickt, karim ja mal passieren. \n"
-    "Nach Süden führt der einzige Weg zurück."
 )
 
 ROOM2_8_DESC = "Hallwinkel der Panzerfuge"
@@ -277,19 +272,16 @@ ROOM2_11_LDESC = (
 ROOM2_12_DESC = "Engpass der Ocelli"
 ROOM2_12_LDESC = (
     "Der Engpass zwingt dich dicht an die Wand. \n"
-    "Nach Osten bleibt es schmal. \n"
 )
 
 ROOM2_13_DESC = "Durchlass der Segmentfuge"
 ROOM2_13_LDESC = (
     "Der Durchlass wirkt wie ein Gelenk im Raum. \n"
-    "Nach Norden bleibt alles fest gefügt. \n"
 )
 
 ROOM2_14_DESC = "Kammer der Mandibeln"
 ROOM2_14_LDESC = (
     "Die Kammer ist kantig und geschlossen, als könnte sie sich jederzeit zusammenziehen. \n"
-    "Wege führen nach Norden und nach Süden. \n"
 )
 
 ROOM2_15_DESC = "Bucht der Flügeldecken"
@@ -329,20 +321,17 @@ ROOM3_4_LDESC = (
 ROOM3_5_DESC = "Kurve der Tauhaut"
 ROOM3_5_LDESC = (
     "Die Oberfläche wirkt kühl und gespannt. \n"
-    "Der Weg setzt sich nach Süden und nach Osten fort."
 )
 
 ROOM3_6_DESC = "Spaltung der Spaltöffnungen"
 ROOM3_6_LDESC = (
     "Der Raum teilt sich in mehrere Richtungen. \n"
-    "Wege öffnen sich nach Norden, nach Osten und nach Westen. \n"
 )
 
 ROOM3_7_DESC = "Gang der Knospenruhe"
 ROOM3_7_LDESC = (
     "Der Gang liegt ruhig da, als würde er warten. \n"
     "Die Luft ist jetzt manchmal gefüllt von einem leichten Duft, der von Osten zu kommen scheint. \n"
-    "Das Licht aus Osten ist stark, fast schon blendend."
 )
 
 ROOM3_8_DESC = "Kurve der Blattfalten"
@@ -353,7 +342,6 @@ ROOM3_8_LDESC = (
 ROOM3_9_DESC = "Kurve der Wachsschicht"
 ROOM3_9_LDESC = (
     "Die Kurve wirkt glatt und abgeschlossen. \n"
-    "Grelles Licht fällt von Osten her ein."
 )
 
 ROOM3_10_DESC = "Sackgasse der Prothallien"
